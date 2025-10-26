@@ -1,79 +1,79 @@
 # lama3-local-rag
 
-Um assistente de IA para código, 100% local e privado, construído com a arquitetura RAG (Geração Aumentada por Recuperação).
+A 100% local and private AI assistant for code, built with the RAG (Retrieval-Augmented Generation) architecture.
 
-Este projeto demonstra como usar Large Language Models (LLMs) de código aberto (Llama 3) para conversar sobre bases de código complexas, sem enviar nenhum arquivo para serviços de nuvem como OpenAI ou GitHub Copilot.
-
----
-
-## Funcionalidades
-
-* **Análise de Código Privada:** Todo o processamento (embeddings e geração) é executado localmente via **Ollama**.
-* **RAG Core:** Implementa o pipeline RAG para garantir que as respostas do LLM sejam baseadas *apenas* no seu código-fonte, evitando alucinações.
-* **Suporte a Projetos:** Configurado para analisar arquivos Python e facilmente adaptável para TypeScript, HTML, etc.
-* **Índice Persistente:** Usa **ChromaDB** para salvar o "conhecimento" do código, permitindo que o script seja reiniciado sem reindexar o projeto inteiro.
+This project demonstrates how to use open-source Large Language Models (LLMs) like Llama 3 to converse about complex codebases, without sending any files to cloud services like OpenAI or GitHub Copilot.
 
 ---
 
-## Tecnologias Utilizadas
+## Features
 
-| Componente | Tecnologia | Função no Projeto |
+* **Private Code Analysis:** All processing (embeddings and generation) is executed locally via **Ollama**.
+* **RAG Core:** Implements the RAG pipeline to ensure LLM responses are based **only** on your source code, preventing "hallucinations."
+* **Project Support:** Configured to analyze Python files and easily adaptable to TypeScript, HTML, etc.
+* **Persistent Index:** Uses **ChromaDB** to save the code's "knowledge," allowing the script to be restarted without re-indexing the entire project.
+
+---
+
+## Technologies Used
+
+| Component | Technology | Role in Project |
 | :--- | :--- | :--- |
-| **LLM (Gerador)** | **Llama 3** (via Ollama) | O modelo principal que gera as respostas em texto. |
-| **Embeddings** | **Nomic Embed** (via Ollama) | Cria a representação vetorial (o "significado") do código para busca. |
-| **Framework RAG** | **LangChain** | Orquestra todo o pipeline: carregamento, divisão, busca e chamada do LLM. |
-| **Banco Vetorial** | **ChromaDB** | Armazenamento persistente e eficiente do índice de código. |
-| **Motor Local** | **Ollama** | Responsável por rodar os modelos LLM e de Embeddings na máquina local. |
+| **LLM (Generator)** | **Llama 3** (via Ollama) | The main model that generates text responses. |
+| **Embeddings** | **Nomic Embed** (via Ollama) | Creates the vector representation (the "meaning") of the code for search. |
+| **RAG Framework** | **LangChain** | Orchestrates the entire pipeline: loading, splitting, retrieval, and LLM calling. |
+| **Vector Store** | **ChromaDB** | Persistent and efficient storage of the code index. |
+| **Local Engine** | **Ollama** | Responsible for running the LLM and Embedding models locally. |
 
 ---
 
-## Como Configurar e Rodar
+## Setup and Usage
 
-Siga estes passos para colocar o assistente em funcionamento.
+Follow these steps to get the assistant running.
 
-### Pré-requisitos
+### Prerequisites
 
 1.  **Python 3.10+**
-2.  **Ollama** (Instalado e rodando)
-3.  **Modelos Baixados** (Execute no terminal após instalar o Ollama):
+2.  **Ollama** (Installed and running)
+3.  **Download Models** (Execute in the terminal after installing Ollama):
     ```bash
     ollama pull llama3
     ollama pull nomic-embed-text
     ```
 
-### Instalação
+### Installation
 
-1.  **Clone o Repositório:**
+1.  **Clone the Repository:**
     ```bash
     git clone [https://github.com/caiobvg/lama3-local-rag.git](https://github.com/caiobvg/lama3-local-rag.git)
     cd lama3-local-rag
     ```
 
-2.  **Configure o Ambiente Virtual:**
+2.  **Set up Virtual Environment:**
     ```bash
     python3 -m venv venv
     source venv/bin/activate
     ```
 
-3.  **Instale as Dependências Python:**
+3.  **Install Python Dependencies:**
     ```bash
     pip install langchain-community langchain-core langchain-text-splitters langchain-ollama chromadb
     ```
 
-### Uso
+### Usage
 
-O projeto está configurado para ler o arquivo `calculations.py`.
+The project is configured to read the example file `calculations.py`.
 
-1.  **Execute o Script:**
+1.  **Run the Script:**
     ```bash
     python main.py
     ```
 
-2.  **Primeira Execução (Indexação):**
-    O script irá rodar a função `indexar_projeto()`. Ele lerá o `calculations.py`, criará os embeddings (o processo mais demorado) e salvará o índice na pasta `chroma_db/`.
+2.  **First Run (Indexing):**
+    The script will execute the `index_project()` function. It will read `calculations.py`, create the embeddings (the most time-consuming step), and save the index to the `chroma_db/` folder.
 
-3.  **Conversa:**
-    Após a indexação, o chat será iniciado. Faça perguntas sobre o código do `calculations.py`:
+3.  **Chat:**
+    After indexing, the chat will start. Ask questions about the code in `calculations.py`:
 
     ```
     Your question: What is the purpose of the GeometryCalculator class?
@@ -82,12 +82,12 @@ O projeto está configurado para ler o arquivo `calculations.py`.
 
 ---
 
-## Estrutura do Projeto
+## Project Structure
 
-| Arquivo/Pasta | Descrição |
+| File/Folder | Description |
 | :--- | :--- |
-| `main.py` | Contém o código principal do pipeline RAG, incluindo a lógica de indexação e o loop de chat. |
-| `calculations.py` | O arquivo de código de exemplo usado como fonte de dados (Base de Conhecimento). |
-| `venv/` | Ambiente virtual Python (ignorado pelo Git). |
-| `chroma_db/` | Banco de dados vetorial (o índice do código, ignorado pelo Git). |
-| `.gitignore` | Arquivo que impede o envio de pastas grandes e de cache. |
+| `main.py` | Contains the core RAG pipeline code, including indexing logic and the chat loop. |
+| `calculations.py` | The example code file used as the data source (Knowledge Base). |
+| `venv/` | Python virtual environment (ignored by Git). |
+| `chroma_db/` | Vector database cache (the code index, ignored by Git). |
+| `.gitignore` | File that prevents large cache and dependency folders from being uploaded. |

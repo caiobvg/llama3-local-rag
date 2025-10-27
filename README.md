@@ -45,8 +45,8 @@ Follow these steps to get the assistant running.
 
 1.  **Clone the Repository:**
     ```bash
-    git clone [https://github.com/caiobvg/lama3-local-rag.git](https://github.com/caiobvg/lama3-local-rag.git)
-    cd lama3-local-rag
+    git clone https://github.com/caiobvg/llama3-local-rag
+    cd llama3-local-rag
     ```
 
 2.  **Set up Virtual Environment:**

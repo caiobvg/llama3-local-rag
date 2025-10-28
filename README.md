@@ -41,13 +41,11 @@ This project demonstrates how to use open-source Large Language Models (LLMs) li
 
 ### Installation
 
-    ```bash
     git clone https://github.com/caiobvg/llama3-local-rag
     cd llama3-local-rag
     python3 -m venv venv
     source venv/bin/activate
     pip install langchain-community langchain-core langchain-text-splitters langchain-ollama chromadb
-    ```
 
 ### Usage
 

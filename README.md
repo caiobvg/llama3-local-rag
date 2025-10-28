@@ -18,7 +18,7 @@ This project demonstrates how to use open-source Large Language Models (LLMs) li
 ## Technologies Used
 
 | Component | Technology |
-| :--- | :--- | :--- |
+| :--- | :--- |
 | **LLM (Generator)** | **Llama 3** (via Ollama) |
 | **Embeddings** | **Nomic Embed** (via Ollama) |
 | **RAG Framework** | **LangChain** | 

@@ -17,13 +17,13 @@ This project demonstrates how to use open-source Large Language Models (LLMs) li
 
 ## Technologies Used
 
-| Component | Technology | Role in Project |
+| Component | Technology |
 | :--- | :--- | :--- |
-| **LLM (Generator)** | **Llama 3** (via Ollama) | The main model that generates text responses. |
-| **Embeddings** | **Nomic Embed** (via Ollama) | Creates the vector representation (the "meaning") of the code for search. |
-| **RAG Framework** | **LangChain** | Orchestrates the entire pipeline: loading, splitting, retrieval, and LLM calling. |
-| **Vector Store** | **ChromaDB** | Persistent and efficient storage of the code index. |
-| **Local Engine** | **Ollama** | Responsible for running the LLM and Embedding models locally. |
+| **LLM (Generator)** | **Llama 3** (via Ollama) |
+| **Embeddings** | **Nomic Embed** (via Ollama) |
+| **RAG Framework** | **LangChain** | 
+| **Vector Store** | **ChromaDB** | 
+| **Local Engine** | **Ollama** | 
 
 ---
 

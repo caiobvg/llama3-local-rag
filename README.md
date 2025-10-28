@@ -29,8 +29,6 @@ This project demonstrates how to use open-source Large Language Models (LLMs) li
 
 ## Setup and Usage
 
-Follow these steps to get the assistant running.
-
 ### Prerequisites
 
 1.  **Python 3.10+**
@@ -43,20 +41,11 @@ Follow these steps to get the assistant running.
 
 ### Installation
 
-1.  **Clone the Repository:**
     ```bash
     git clone https://github.com/caiobvg/llama3-local-rag
     cd llama3-local-rag
-    ```
-
-2.  **Set up Virtual Environment:**
-    ```bash
     python3 -m venv venv
     source venv/bin/activate
-    ```
-
-3.  **Install Python Dependencies:**
-    ```bash
     pip install langchain-community langchain-core langchain-text-splitters langchain-ollama chromadb
     ```
 
@@ -81,13 +70,3 @@ The project is configured to read the example file `calculations.py`.
     ```
 
 ---
-
-## Project Structure
-
-| File/Folder | Description |
-| :--- | :--- |
-| `main.py` | Contains the core RAG pipeline code, including indexing logic and the chat loop. |
-| `calculations.py` | The example code file used as the data source (Knowledge Base). |
-| `venv/` | Python virtual environment (ignored by Git). |
-| `chroma_db/` | Vector database cache (the code index, ignored by Git). |
-| `.gitignore` | File that prevents large cache and dependency folders from being uploaded. |
